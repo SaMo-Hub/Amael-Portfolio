@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { project } from "../project_list";
 import Button from "../Components/Button";
 
-export default function ProjectsPage() {
+export default function ProjectsPageWhite() {
   const { id } = useParams(); // Récupérer l'id de l'URL
   const projectData = project.find((p) => p.id === parseInt(id)); // Trouver le projet correspondant
   console.log(project.length);
@@ -41,8 +41,9 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="  pb-[60px]  font-mark relative">
+    <div className=" bg-white pb-[60px]  text-black font-mark relative">
       <Button
+        white={true}
         style={"fixed left-10 top-8"}
         click={() => setOpenModal(!openModal)}
         text={"info"}
@@ -50,7 +51,7 @@ export default function ProjectsPage() {
       {/* Bouton pour ouvrir le modal */}
 
       {/* Overlay */}
-      <div
+      <div 
         onClick={handleClickOutside}
         
       >
@@ -66,7 +67,7 @@ export default function ProjectsPage() {
         <div
           ref={modalRef}
           style={{ transform: "translateX(-100%)" }} // Position initiale CSS sans animation
-          className=" p-12 gap-12 flex flex-col pt-28 h-full bg-black sm:w-[50%] md: lg:w-[40%] fixed"
+          className=" p-12 gap-12 flex flex-col pt-28 h-full bg-white sm:w-[50%] md: lg:w-[40%] fixed"
         >
           <div className="gap-8 flex flex-col">
             <h1 className="tracking-wide text-[48px] break-words uppercase">
@@ -110,8 +111,8 @@ export default function ProjectsPage() {
             </svg>
           </button>
           <Link
-            to={openModal ? "" : "/"}
-            className={`relative  text-[30px] text-white`}
+            to={openModal ? "" : "/white"}
+            className={`relative  text-[30px] text-black`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -146,9 +147,9 @@ export default function ProjectsPage() {
       </div>
       <div className="flex pointer-events-auto  justify-center items-center">
         <div
-          className={`mt-[60px] flex-wrap flex items-center py-3 px-4 gap-4 font-medium w-auto text-xs uppercase text-white border-white bg-[#000000af] border-[4px]`}
+          className={`mt-[60px] flex-wrap flex items-center py-3 px-4 gap-4 font-medium w-auto text-xs uppercase text-black border-black bg-[#ffffffaf] border-[4px]`}
         >
-      <Link className={`${id<=1 ? 'hidden' : "block"}  `} to={`/projects/${parseInt(id)-1}`} >
+      <Link className={`${id<=1 ? 'hidden' : "block"}  `} to={`/projectswhite/${parseInt(id)-1}`} >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -167,7 +168,7 @@ export default function ProjectsPage() {
 
 
           <p>Autre projets</p>
-          <Link className={`${id>=project.length  ? 'hidden' : "block"}  `} to={`/projects/${parseInt(id)+1}`} >
+          <Link className={`${id>=project.length  ? 'hidden' : "block"}  `} to={`/projectswhite/${parseInt(id)+1}`} >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

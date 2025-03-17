@@ -2,6 +2,7 @@ import blue from '/images/ILLUSTRATION/blue.png'
 import coucher_de_soleil from '/images/ILLUSTRATION/green.png'
 
 import coeur from '/images/3D/coeur.png'
+import pianist from '/images/3D/pianist.png'
 
 export const project = [
                   { name: "Illustration", 
@@ -15,7 +16,7 @@ export const project = [
                   },
                   { name: "3D", 
                     cover:coeur,
-                    img:[blue,coucher_de_soleil],
+                    img:[coeur,pianist],
                     id:2,
                     logiciel : 'Photoshop',
                     annee:'2025',
@@ -26,7 +27,7 @@ export const project = [
                   { name: "3D", 
                     cover:coeur,
                     img:[blue,coucher_de_soleil],
-                    id:2,
+                    id:3,
                     logiciel : 'Photoshop',
                     annee:'2025',
                     categori:'illustration',
