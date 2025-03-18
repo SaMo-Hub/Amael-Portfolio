@@ -3,12 +3,15 @@ import { gsap } from "gsap";
 import { Link, useParams } from "react-router-dom";
 import { project } from "../project_list";
 import Button from "../Components/Button";
-
+import { div, image } from "motion/react-client";
+import pixelGarsStyle from "/images/pixel/garsstylé.gif";
+import pixelraun from "/images/pixel/raun.gif";
+import pixelild from "/images/pixel/ild.png";
 export default function ProjectsPage() {
   const { id } = useParams(); // Récupérer l'id de l'URL
   const projectData = project.find((p) => p.id === parseInt(id)); // Trouver le projet correspondant
   console.log(project.length);
-  
+
   const [openModal, setOpenModal] = useState(true); // État du modal
   const modalRef = useRef(null);
 
@@ -50,18 +53,21 @@ export default function ProjectsPage() {
       {/* Bouton pour ouvrir le modal */}
 
       {/* Overlay */}
-      <div
-        onClick={handleClickOutside}
-        
-      >
-        <div onClick={handleClickOutside} className={`transition-all pointer-events-none ease-in-out duration-300 w-[100vw] min-h-screen z-0 h-screen fixed ${
-          openModal ? "bg-[#0000009b]" : "bg-[#00000000] "
-        }`}></div>
-        
-        <div onClick={handleClickOutside} className={` w-[100vw] min-h-screen z-10 h-screen fixed ${
-          openModal ? "block" : "hidden"
-        }`}></div>
-        
+      <div onClick={handleClickOutside}>
+        <div
+          onClick={handleClickOutside}
+          className={`transition-all pointer-events-none ease-in-out duration-300 w-[100vw] min-h-screen z-0 h-screen fixed ${
+            openModal ? "bg-[#0000009b]" : "bg-[#00000000] "
+          }`}
+        ></div>
+
+        <div
+          onClick={handleClickOutside}
+          className={` w-[100vw] min-h-screen z-10 h-screen fixed ${
+            openModal ? "block" : "hidden"
+          }`}
+        ></div>
+
         {/* Modal */}
         <div
           ref={modalRef}
@@ -74,7 +80,14 @@ export default function ProjectsPage() {
             </h1>
             <div className="flex flex-col gap-3">
               <h3 className="text-[24px] font-bold">Synopsis</h3>
-              <p className="font-ligh text-[12px] h">{projectData.synopsis}</p>
+              <p className="font-ligh text-[12px] h">
+                {projectData.synopsis.split("<br/>").map((line, index) => (
+                  <span key={index}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
+              </p>
             </div>
           </div>
           <div className="flex flex-col gap-3">
@@ -134,21 +147,101 @@ export default function ProjectsPage() {
       </div>
 
       {/* Images du projet */}
-      <div className="flex flex-col gap-24">
-        {projectData.img.map((image, imgIndex) => (
-          <img
-            key={imgIndex}
-            className="w-full"
-            src={image}
-            alt={`Illustration ${imgIndex + 1}`}
-          />
-        ))}
+      <div className="flex  mb-24   flex-col gap-24">
+        {projectData.img &&
+          projectData.img.map((image, imgIndex) => (
+            <div key={imgIndex}>
+              {image.grid && (
+                <div className={image.gridName}>
+                  {image.grid.map((item, index) => (
+                    <img key={`grid-${imgIndex}-${index}`} src={item} alt="" />
+                  ))}
+                </div>
+              )}
+
+              {image.img && (
+                <img
+                  key={`img-${imgIndex}`}
+                  className="w-full"
+                  src={image.img}
+                  alt={`Illustration ${imgIndex + 1}`}
+                />
+              )}
+
+              {image.video &&
+                image.video.map((item, index) => (
+                  <video
+                    key={`video-${imgIndex}-${index}`}
+                    className="w-full"
+                    src={item}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                ))}
+            </div>
+          ))}
       </div>
-      <div className="flex pointer-events-auto  justify-center items-center">
+
+      {/* <div className="flex z-50 fixed mb-12 bottom-0 left-[50%] translate-x-[-50%] pointer-events-auto  justify-center items-center">
         <div
-          className={`mt-[60px] flex-wrap flex items-center py-3 px-4 gap-4 font-medium w-auto text-xs uppercase text-white border-white bg-[#000000af] border-[4px]`}
+          className={`mt-[60px] overflow-hidden flex-wrap flex items-center py-3 px-4 gap-4 font-medium   h-fit w-fit  text-xs uppercase text-white border-white bg-[#000000af] border-[4px]`}
         >
-      <Link className={`${id<=1 ? 'hidden' : "block"}  `} to={`/projects/${parseInt(id)-1}`} >
+          <Link
+            onClick={() => setOpenModal(true)}
+            className={`${id <= 1 ? "hidden" : "block"}  `}
+            to={`/projects/${parseInt(id) - 1}`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={3}
+              stroke="currentColor"
+              className="size-[16px] "
+            >
+              <path
+                strokeLinecap="square"
+                strokeLinejoin="round"
+                d="M15.75 19.5 8.25 12l7.5-7.5"
+              />
+            </svg>
+          </Link>
+
+          <p>Autre projets</p>
+          <Link
+            onClick={() => setOpenModal(true)}
+            className={`${id >= project.length ? "hidden" : "block"}  `}
+            to={`/projects/${parseInt(id) + 1}`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={3}
+              stroke="currentColor"
+              className="size-[16px] "
+            >
+              <path
+                strokeLinecap="square"
+                strokeLinejoin="round"
+                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </Link>
+          
+        </div>
+      </div> */}
+
+      <div
+        className={`fixed font-medium mb-12 bottom-0 left-[50%] translate-x-[-50%]   py-3 px-4 gap-4  h-fit w-fit  text-xs uppercase items-center flex overflow-hidden hover:text-black border-white bg-[#000000af] text-white   transition-all   group z-20  flex-wrap tracking-widest text-text border-[4px]`}
+      >
+        <Link
+          onClick={() => setOpenModal(true)}
+          className={`relative z-20 ${id <= 1 ? "hidden" : "block"}  `}
+          to={`/projects/${parseInt(id) - 1}`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -160,14 +253,18 @@ export default function ProjectsPage() {
             <path
               strokeLinecap="square"
               strokeLinejoin="round"
-             d="M15.75 19.5 8.25 12l7.5-7.5"
+              d="M15.75 19.5 8.25 12l7.5-7.5"
             />
           </svg>
-          </Link>
-
-
-          <p>Autre projets</p>
-          <Link className={`${id>=project.length  ? 'hidden' : "block"}  `} to={`/projects/${parseInt(id)+1}`} >
+        </Link>
+        <span className="relative z-20">Autre projets</span>
+        <Link
+          onClick={() => setOpenModal(true)}
+          className={`relative z-20 ${
+            id >= project.length ? "hidden" : "block"
+          }  `}
+          to={`/projects/${parseInt(id) + 1}`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -182,8 +279,10 @@ export default function ProjectsPage() {
               d="m8.25 4.5 7.5 7.5-7.5 7.5"
             />
           </svg>
-          </Link>
-        </div>
+        </Link>
+        <div
+          className={`transition-all duration-300 left-0 z-10 top-0 translate-y-20 group-hover:translate-y-0 bg-[#ffffff]  w-full h-full absolute`}
+        ></div>
       </div>
     </div>
   );
