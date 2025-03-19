@@ -3,14 +3,22 @@ import Navbar from '../Components/Navbar'
 import { project } from '../project_list'
 import { Link } from 'react-router-dom'
 import Button from '../Components/Button'
-
+import videoPres from '/public/images/videoPres.mp4'
 function HomePage() {
   return (
     <div className='pb-32 '>
         <Navbar/>
 
         <div className=''>
-            <img className='h-[100vh] w-[100vw] object-cover object- ' src="/images/image.png" alt="" />
+        <video
+                    className="h-[100vh] object-cover  w-[100vw]"
+                    src={videoPres}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+            {/* <img className=' object-cover object- ' src="/images/image.png" alt="" /> */}
         </div>
           <Button style={"right-10 bottom-10 fixed"}  text={"contact"}/>
           <Button link={'/white'}  style={"left-10 bottom-10 absolute"}  text={"portfolio graphisme"}/>

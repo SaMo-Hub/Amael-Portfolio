@@ -47,11 +47,11 @@ export const project = [
       { grid: [pump4, pump5], gridName: "grid-2" },
     ],
     id: 1,
-    logiciel: "Photoshop",
-    annee: "2025",
+    logiciel: "Photoshop and traditional",
+    annee: "2023 - 2025",
     categori: "illustration",
     synopsis:
-      "In a small boarding school lost in the middle of the Cantal mountains, five teenagers spend the Autumn holidays with their jaded supervisor, Lena. But when they accidentally get cursed by a terrible witch, all hell breaks loose and the terrifying creatures of French folklore come after them…",
+      " Le projet met en scène un aventurier téméraire qui, poussé par sa soif de découverte, s’engage dans une forêt mystérieuse. Son ascension vers le sommet d’une montagne le mène à une porte énigmatique : l’entrée du Royaume de Pumking, un monde aussi fascinant que redoutable.<br/><br/>Curieux et incapable de résister à l’appel de l’inconnu, il cherche un moyen d’y pénétrer, ignorant que ce royaume est en réalité un gigantesque jeu. Chaque épreuve qui l’attend est un défi, de plus en plus dangereux, où l’ingéniosité et la persévérance seront ses seules armes pour espérer s’en sortir.",
   },
   {
     name: "Illustration",
@@ -68,10 +68,10 @@ export const project = [
     ],
     id: 2,
     logiciel: "Photoshop",
-    annee: "2025",
+    annee: "2024",
     categori: "illustration",
     synopsis:
-      "In a small boarding school lost in the middle of the Cantal mountains, five teenagers spend the Autumn holidays with their jaded supervisor, Lena. But when they accidentally get cursed by a terrible witch, all hell breaks loose and the terrifying creatures of French folklore come after them…",
+      "Ce projet d’illustration repose sur l’utilisation de quatre couleurs emblématiques, chacune associée à un thème spécifique : le vert pour la nature, le bleu pour la mer, le rose pour les nuages et le jaune pour le soleil. L’objectif était de créer une série cohérente et évocatrice, où chaque couleur incarne pleinement l’ambiance et les émotions liées à son thème. J’ai porté une attention particulière à l’équilibre visuel.",
   },
   {
     name: "3D",
@@ -86,15 +86,26 @@ export const project = [
   },
 
   {
-    name: "Video 2d 3d",
+    name: "Animation 2d",
     cover: image,
     img: [{ video: [premiereVideo, secondVideo] }],
     id: 4,
-    logiciel: "Photoshop",
-    annee: "2025",
+    logiciel: "Blender and Animate",
+    annee: "2023- 2025",
     categori: "illustration",
     synopsis:
-      "In a small boarding school lost in the middle of the Cantal mountains, five teenagers spend the Autumn holidays with their jaded supervisor, Lena. But when they accidentally get cursed by a terrible witch, all hell breaks loose and the terrifying creatures of French folklore come after them…",
+      "Ce projet m’a permis d’explorer l’interaction entre animation 2D et 3D à travers Blender. Mon objectif était de tirer parti des atouts de chaque médium : la 3D pour structurer l’espace et assurer la cohérence des volumes, et la 2D pour apporter un style graphique plus expressif et dynamique inspiré de l’artiste Dédouze",
+  },
+  {
+    name: "Volleyball",
+    cover: image,
+    img: [{ video: [premiereVideo, secondVideo] }],
+    id: 6,
+    logiciel: "Blender and Animate",
+    annee: "2023- 2025",
+    categori: "illustration",
+    synopsis:
+      "Pour ce projet, j’ai conçu une affiche pour le tournoi de volleyball de mon club. Afin de capturer l’intensité et l’énergie de l’événement, j’ai exploré trois illustrations représentant différentes heures de la journée. Après réflexion, j’ai retenu celle de l’après-midi, car elle offrait un éclairage dynamique mettant en valeur les joueurs et l’atmosphère estivale du tournoi.",
   },
   {
     name: "Pixel",
