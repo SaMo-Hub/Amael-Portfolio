@@ -3,16 +3,13 @@ import { gsap } from "gsap";
 import { Link, useParams } from "react-router-dom";
 import { project } from "../project_list";
 import Button from "../Components/Button";
-import { div, image } from "motion/react-client";
-import pixelGarsStyle from "/images/pixel/garsstylé.gif";
-import pixelraun from "/images/pixel/raun.gif";
-import pixelild from "/images/pixel/ild.png";
+import { motion } from 'framer-motion';
+
 export default function ProjectsPage() {
   const { id } = useParams(); // Récupérer l'id de l'URL
   const projectData = project.find((p) => p.id === parseInt(id)); // Trouver le projet correspondant
-  console.log(project.length);
 
-  const [openModal, setOpenModal] = useState(true); // État du modal
+  const [openModal, setOpenModal] = useState(false); // État du modal
   const modalRef = useRef(null);
 
   // Animation à l'ouverture et à la fermeture du modal
@@ -35,7 +32,45 @@ export default function ProjectsPage() {
       }
     }
   }, [openModal]);
+  
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setOpenModal(true);
+    }, 500); // Temps identique à l'animation
+  
+    return () => clearTimeout(timeout); // Nettoyer le timeout au démontage
+  }, []);
 
+  const containerRef = useRef(null);
+  const containerImageRef = useRef(null);
+  const containerParagpraheef = useRef(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Remet le scroll en haut de la page à chaque changement de route
+    
+    if (containerRef.current) {
+      console.log("ff");
+      const words = containerRef.current.querySelectorAll(".word");
+
+      // Animation des mots
+      gsap.fromTo(
+        words,
+        { y: 200 },
+        {
+          y: 0,
+          opacity: 1,
+          filter: "blur(0px)",
+          stagger: 0.02,
+          duration: 1,
+          ease: "power2.out",
+        delay:0.5
+        }
+      );
+
+     
+   
+    }
+  }, []);
   // Gestion des clics en dehors du modal
   const handleClickOutside = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
@@ -44,12 +79,29 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="  pb-[60px]  font-mark relative">
-      <Button
+    <div className=" bg-black text-white pb-[60px]  font-mark relative">
+        <motion.div
+        initial={{ translateX: 0, }}
+     animate={{ translateX: '100%', }}
+     exit={{ translateX: 0 }}
+     transition={{ duration: 1.5, ease: [0.42, 0, 0.58, 1] }}
+     className='slide-out'
+      />
+        <motion.a
+         initial={{ translateY: "-170%" }}
+         animate={{ translateY: 0, }}
+         exit={{ translateX: 0 }}
+         transition={{ delay:1, duration: 0.7, ease: 'easeOut'}}
+        click={() => setOpenModal(!openModal)}
+        className={`fixed left-10 top-8 h-fit w-fit overflow-hidden  hover:text-black border-white bg-[#000000af] text-white "}  transition-all   group z-20  flex-wrap py-3 px-8 tracking-widest text-sm font-bold uppercase text-text border-[4px]`}>
+                        <span className="relative z-20">infddo</span>  
+                        <div className={`transition-all duration-300 left-0 z-10 top-0 translate-y-20 group-hover:translate-y-0 bg-[#ffffff] w-full h-full absolute`}></div>
+             </motion.a>
+      {/* <Button
         style={"fixed left-10 top-8"}
         click={() => setOpenModal(!openModal)}
         text={"info"}
-      />
+      /> */}
       {/* Bouton pour ouvrir le modal */}
 
       {/* Overlay */}
@@ -75,8 +127,15 @@ export default function ProjectsPage() {
           className=" p-12 gap-12 flex flex-col pt-28 h-full bg-black sm:w-[50%] md: lg:w-[40%] fixed"
         >
           <div className="gap-8 flex flex-col">
-            <h1 className="tracking-wide text-[48px] break-words uppercase">
-              {projectData.name}
+          <h1 ref={containerRef} className="tracking-wide overflow-hidden text-[48px] break-words uppercase">
+            {projectData.name.split("").map((word, index) => (
+                <div
+className="word word inline-block "
+                id="index"
+              >
+                {word}
+              </div>
+            ))}
             </h1>
             <div className="flex flex-col gap-3">
               <h3 className="text-[24px] font-bold">Synopsis</h3>
@@ -235,6 +294,7 @@ export default function ProjectsPage() {
       </div> */}
 
       <div
+      
         className={`fixed font-medium mb-12 bottom-0 left-[50%] translate-x-[-50%]   py-3 px-4 gap-4  h-fit w-fit  text-xs uppercase items-center flex overflow-hidden hover:text-black border-white bg-[#000000af] text-white   transition-all   group z-20  flex-wrap tracking-widest text-text border-[4px]`}
       >
         <Link

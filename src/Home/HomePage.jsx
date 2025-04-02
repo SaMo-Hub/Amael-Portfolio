@@ -4,11 +4,18 @@ import { project } from '../project_list'
 import { Link } from 'react-router-dom'
 import Button from '../Components/Button'
 import videoPres from '/public/images/videoPres.mp4'
+import { motion } from 'framer-motion';
 function HomePage() {
   return (
-    <div className='pb-32 '>
+    <div className='pb-32 bg-black text-white '>
         <Navbar/>
-
+        <motion.div
+     animate={{ translateX: '-100%', }}
+     exit={{ translateX: 0 }}
+     transition={{ duration: 0.6, ease:'easeIn' }}
+     className='slide-in'
+      />
+   
         <div className=''>
         <video
                     className="h-[100vh] object-cover  w-[100vw]"
