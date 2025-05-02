@@ -27,7 +27,7 @@ function HomePage() {
                   />
             {/* <img className=' object-cover object- ' src="/images/image.png" alt="" /> */}
         </div>
-          <Button style={"right-10 bottom-10 fixed"}  text={"contact"}/>
+          {/* <Button style={"right-10 bottom-10 fixed"}  text={"contact"}/> */}
           <Button link={'/white'}  style={"left-10 bottom-10 absolute"}  text={"portfolio graphisme"}/>
 
        
@@ -46,17 +46,15 @@ function HomePage() {
             ))}
         </div>
 
-        <div className='mt-[240px]'>
-          <p className='text-5xl font-bold'>
-          Animation studio founded in 2014. <br/>Hidden in Paris.
-          </p>
+        {/* <div className='mt-[240px]'>
+          
 
           <div className='mt-[80px] flex gap-5'>
           <Button style={'relative'}  text={"contact"}/>
           <Button style={"relative "}  text={"ffsf"}/>
 
           </div>
-        </div>
+        </div> */}
     </div>
     </div>
   )

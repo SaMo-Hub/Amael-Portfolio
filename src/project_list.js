@@ -12,6 +12,11 @@ import pump2 from "/images/pumking/2.png";
 import pump3 from "/images/pumking/3.png";
 import pump4 from "/images/pumking/4.png";
 import pump5 from "/images/pumking/5.png";
+import pumpgifporte from "/images/pumking/gifporte.gif";
+import pumpcroquis2 from "/images/pumking/croquis2.png";
+import pumpcroquis1 from "/images/pumking/croquis1.png";
+import pumpcgifpump from "/images/pumking/gifpumking.gif";
+import pumpaffihce from "/images/pumking/affiche.png";
 
 import colorcroquisPiano1 from "/images/colorIllu/aa.png";
 import colorcroquisPiano2 from "/images/colorIllu/aaaa.png";
@@ -27,24 +32,37 @@ import colorimage2 from "/images/colorIllu/image2.png";
 import colormeh from "/images/colorIllu/meh.png";
 import colorplusmeh from "/images/colorIllu/plusmeh.png";
 
-import pixelGarsStyle from "/images/pixel/garsstylé.gif";
-import pixelraun from "/images/pixel/raun.gif";
-import pixelild from "/images/pixel/ilds.png";
-import pixegrenouille from "/images/pixel/azeaze.gif";
+
+
+import volleyaffiche from "/images/volley/affiche.png";
+import volleyciel from "/images/volley/soleil.png";
+import volleysoir from "/images/volley/soir.png";
+import volleycoucherdesoleil from "/images/volley/coucherdesoleil.png";
+
+
+
+// import pixelGarsStyle from "/images/pixel/garsstylé.gif";
+// import pixelraun from "/images/pixel/raun.gif";
+// import pixelild from "/images/pixel/ilds.png";
+// import pixegrenouille from "/images/pixel/azeaze.gif";
 
 export const project = [
   {
     name: "Pumpking",
     cover: pump1,
+    listImg:[pump1,pumpchara, pumpcroquisSecond, pump2,pump3,pump4,pump5],
     img: [
       { img: pump1 },
+      { img: pumpcgifpump },
       {
         grid: [pumpchara, pumpcroquisSecond, pumpcroquisSecond],
         gridName: "grid-1-2",
       },
-      { img: pump2 },
       { img: pump3 },
       { grid: [pump4, pump5], gridName: "grid-2" },
+      { img: pump2 },
+      { grid: [pumpaffihce,pumpgifporte, ], gridName: "grid-2" },
+      { grid: [pumpcroquis1, pumpcroquis2], gridName: "grid-2" },
     ],
     id: 1,
     logiciel: "Photoshop and traditional",
@@ -56,6 +74,8 @@ export const project = [
   {
     name: "Illustration",
     cover: colorblue,
+    listImg:[colorblue,colorcroquisPiano2, colorcroquisPiano1, colorgreen,colorplusmeh,colorcroquisSoleil1,colorcroquisSoleil2,colorSoleil,colormeh],
+
     img: [
 
       { img: colorblue },
@@ -76,6 +96,7 @@ export const project = [
   {
     name: "3D",
     cover: coeur,
+    listImg:[coeur,pianist],
     img: [{ img: coeur }, { img: pianist }],
     id: 3,
     logiciel: "Photoshop",
@@ -88,6 +109,7 @@ export const project = [
   {
     name: "Animation 2d",
     cover: image,
+    listImg:[premiereVideo, secondVideo],
     img: [{ video: [premiereVideo, secondVideo] }],
     id: 4,
     logiciel: "Blender and Animate",
@@ -98,34 +120,41 @@ export const project = [
   },
   {
     name: "Volleyball",
-    cover: image,
-    img: [{ video: [premiereVideo, secondVideo] }],
-    id: 6,
-    logiciel: "Blender and Animate",
+    cover: volleyaffiche,
+    listImg:[volleyaffiche,volleyciel,volleysoir,volleycoucherdesoleil],
+
+    img: [
+      {img:volleyaffiche},
+      {img:volleysoir},
+      {img:volleycoucherdesoleil},
+      {img:volleyciel},
+    ],
+    id: 5,
+    logiciel: "Photoshop",
     annee: "2023- 2025",
     categori: "illustration",
     synopsis:
       "Pour ce projet, j’ai conçu une affiche pour le tournoi de volleyball de mon club. Afin de capturer l’intensité et l’énergie de l’événement, j’ai exploré trois illustrations représentant différentes heures de la journée. Après réflexion, j’ai retenu celle de l’après-midi, car elle offrait un éclairage dynamique mettant en valeur les joueurs et l’atmosphère estivale du tournoi.",
   },
-  {
-    name: "Pixel",
-    cover: pixelGarsStyle,
-    img: [
-      {
-        grid: [pixelGarsStyle, pixelild, pixelild, pixelild],
-        gridName: "grid-1-3",
-      },
-      {
-        grid: [pixegrenouille, pixelild, pixelild, pixelild],
-        gridName: "grid-1-3",
-      },
-      { grid: [pixelraun, pixelild, pixelild, pixelild], gridName: "grid-1-3" },
-    ],
-    id: 5,
-    logiciel: "Photoshop",
-    annee: "2025",
-    categori: "illustration",
-    synopsis:
-      " Il y a deux ans, j’ai entrepris la création d’un jeu vidéo dans le but d’explorer un nouveau type de narration et d’univers visuel. Mon objectif était de façonner un monde original tout en développant mes compétences en conception graphique. Tandis qu’un ami devait s’occuper du développement, il a finalement abandonné le projet, me laissant face au défi d’apprendre le code. Après quelques essais, j’ai réalisé que cet aspect technique ne me correspondait pas, ce qui m’a conduit à mettre le projet en pause. <br/><br/> L’univers du jeu prenait place dans une réalité alternative où le protagoniste, un humain doté de pouvoirs, pouvait se transformer en grenouille. Cette mécanique offrait une approche unique du level design  certaines zones n’étaient accessibles qu’en forme de grenouille, tandis que d’autres nécessitaient son apparence humaine, offrant plusieurs façons de progresser.<br/><br/>L’histoire suivait ce personnage solitaire, élevé par une famille de grenouilles, qui partait à la recherche d’autres humains. Son périple le menait à travers d’anciens royaumes et contrées oubliées, dans une quête mêlant exploration et découverte de soi.",
-  },
+  // {
+  //   name: "Pixel",
+  //   cover: pixelGarsStyle,
+  //   img: [
+  //     {
+  //       grid: [pixelGarsStyle, pixelild, pixelild, pixelild],
+  //       gridName: "grid-1-3",
+  //     },
+  //     {
+  //       grid: [pixegrenouille, pixelild, pixelild, pixelild],
+  //       gridName: "grid-1-3",
+  //     },
+  //     { grid: [pixelraun, pixelild, pixelild, pixelild], gridName: "grid-1-3" },
+  //   ],
+  //   id: 5,
+  //   logiciel: "Photoshop",
+  //   annee: "2025",
+  //   categori: "illustration",
+  //   synopsis:
+  //     " Il y a deux ans, j’ai entrepris la création d’un jeu vidéo dans le but d’explorer un nouveau type de narration et d’univers visuel. Mon objectif était de façonner un monde original tout en développant mes compétences en conception graphique. Tandis qu’un ami devait s’occuper du développement, il a finalement abandonné le projet, me laissant face au défi d’apprendre le code. Après quelques essais, j’ai réalisé que cet aspect technique ne me correspondait pas, ce qui m’a conduit à mettre le projet en pause. <br/><br/> L’univers du jeu prenait place dans une réalité alternative où le protagoniste, un humain doté de pouvoirs, pouvait se transformer en grenouille. Cette mécanique offrait une approche unique du level design  certaines zones n’étaient accessibles qu’en forme de grenouille, tandis que d’autres nécessitaient son apparence humaine, offrant plusieurs façons de progresser.<br/><br/>L’histoire suivait ce personnage solitaire, élevé par une famille de grenouilles, qui partait à la recherche d’autres humains. Son périple le menait à travers d’anciens royaumes et contrées oubliées, dans une quête mêlant exploration et découverte de soi.",
+  // },
 ];
