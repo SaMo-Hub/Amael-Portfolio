@@ -28,7 +28,7 @@ function HomePage() {
             {/* <img className=' object-cover object- ' src="/images/image.png" alt="" /> */}
         </div>
           {/* <Button style={"right-10 bottom-10 fixed"}  text={"contact"}/> */}
-          <Button link={'/white'}  style={"left-10 bottom-10 absolute"}  text={"portfolio graphisme"}/>
+          {/* <Button link={'/white'}  style={"left-10 bottom-10 absolute"}  text={"portfolio graphisme"}/> */}
 
        
 

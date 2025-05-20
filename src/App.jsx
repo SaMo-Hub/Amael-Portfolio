@@ -22,7 +22,7 @@ function App() {
         
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<HomePage />} /> {/* Home */}
-          <Route path="/white" element={<HomePageWhite />} /> {/* Home */}
+          <Route path="/white" element={<HomePageWhite />} /> Home
           <Route path="/projects/:id" element={<ProjectsPage />} /> {/* Page Projects */}
         </Routes>
       </AnimatePresence>
